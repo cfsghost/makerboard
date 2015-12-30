@@ -2,6 +2,8 @@
 
 MakerBoard is utility and emulation for development boards, it supports `MediaTek LinkIt Smart 7688` and `MediaTek LinkIt Smart 7688 Duo` currently.
 
+This project supported by __MakerCup Community__, visit [LinkIt-7688 Channel](https://gitter.im/MakerCup/linkit-7688) for more discussions.
+
 ## Installation
 
 MakerBoard can only be running on Linux. It depends on qemu and utilities which you need to install first.
