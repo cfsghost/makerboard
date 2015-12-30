@@ -27,6 +27,11 @@ Create a folder and prepare an emulation environment in it:
 makerboard create my7688
 ```
 
+If you want to create emulation environment by using own rootfs image, you can execute with option `-i`:
+```bash
+makerboard create my7688 -i /opt/foo/rootfs.squashfs
+```
+
 ### Run an Emulation Environment
 
 With `run` command, we can run and enter to specific emulation environment:
