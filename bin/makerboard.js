@@ -27,17 +27,20 @@ var command = argv._[0];
 if (command === 'create') {
 	var argv = yargs.reset()
 		.usage('Usage: $0 create <path>')
+		.option('i', {
+			alias: 'image',
+			describe: 'specifying an image to be used',
+			type: 'string'
+		})
+		.nargs('i', 1)
 		.help('help')
 		.example('$0 create <path>', 'Create a new emulation environment')
 		.demand(2, 'require a valid path')
 		.argv;
 
 	var targetPath = argv._[1].toString();
-	var firmwareUrl = 'https://s3-ap-southeast-1.amazonaws.com/mtk.linkit/openwrt-ramips-mt7688-root.squashfs';
-	var downloader = new MakerBoard.Downloader();
-	downloader.on('finished', function(fwPath) {
+	function extract(fwPath, targetPath) {
 		console.log('Extracting ' + fwPath + '...');
-
 
 		// Extract filesystem
 		var extract = new MakerBoard.Extract();
@@ -49,11 +52,22 @@ if (command === 'create') {
 				console.log('Done');
 			});
 		});
+	}
+
+	if (fs.existsSync(argv.image)) {
+		extract(argv.image, targetPath);
+		return;
+	}
+
+	var firmwareUrl = 'https://s3-ap-southeast-1.amazonaws.com/mtk.linkit/openwrt-ramips-mt7688-root.squashfs';
+	var downloader = new MakerBoard.Downloader();
+	downloader.on('finished', function(fwPath) {
+		extract(fwPath, targetPath);
 	});
 	downloader.download(firmwareUrl, false, path.join(__dirname, '..', 'data'));
 } else if (command === 'run') {
 	var argv = yargs.reset()
-		.usage('Usage: $0 run <path>')
+		.usage('Usage: $0 run <path> [options]')
 		.help('help')
 		.example('$0 run <path>', 'Run specific emulation')
 		.demand(2, 'require a valid path')
