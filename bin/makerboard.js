@@ -32,7 +32,7 @@ if (command === 'create') {
 		.demand(2, 'require a valid path')
 		.argv;
 
-	var targetPath = argv._[1];
+	var targetPath = argv._[1].toString();
 	var firmwareUrl = 'https://s3-ap-southeast-1.amazonaws.com/mtk.linkit/openwrt-ramips-mt7688-root.squashfs';
 	var downloader = new MakerBoard.Downloader();
 	downloader.on('finished', function(fwPath) {
@@ -59,7 +59,7 @@ if (command === 'create') {
 		.demand(2, 'require a valid path')
 		.argv;
 
-	var targetPath = argv._[1];
+	var targetPath = argv._[1].toString();
 	var container = new MakerBoard.Container();
 	container.run(targetPath, function() {
 		console.log('QUIT!');
