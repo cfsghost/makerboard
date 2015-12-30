@@ -10,7 +10,7 @@ MakerBoard can only be running on Linux. It depends on qemu and utilities which 
 
 __For Debian/Ubuntu:__
 ```bash
-sudo apt-get install qemu-user-static unsquashfs 
+sudo apt-get install qemu-user-static squashfs-tools
 ```
 
 To make sure you have Node.js already, then install MakerBoard globally via NPM:
