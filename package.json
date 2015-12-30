@@ -1,0 +1,30 @@
+{
+  "name": "makerboard",
+  "version": "0.1.0",
+  "description": "Utility and emulator for development boards",
+  "main": "./lib/makerboard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "makerboard": "./bin/makerboard.js"
+  },
+  "files": [
+    "bin",
+    "data",
+    "lib"
+  ],
+  "keywords": [
+    "maker",
+    "board",
+    "emulator"
+  ],
+  "author": "Fred Chien <cfsghost@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "co": "^4.6.0",
+    "progress": "^1.1.8",
+    "unzip2": "^0.2.5",
+    "yargs": "^3.31.0"
+  }
+}
