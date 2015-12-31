@@ -2,14 +2,17 @@
 
 MakerBoard is utility and emulation for development boards, it supports `MediaTek LinkIt Smart 7688` and `MediaTek LinkIt Smart 7688 Duo` currently.
 
+This project supported by __MakerCup Community__, visit [LinkIt-7688 Channel](https://gitter.im/MakerCup/linkit-7688) for more discussions.
+
 ## Installation
 
 MakerBoard can only be running on Linux. It depends on qemu and utilities which you need to install first.
 
 __For Debian/Ubuntu:__
 ```bash
-sudo apt-get install qemu-user-static unsquashfs 
+sudo apt-get install qemu-user-static squashfs-tools
 ```
+Known issue: QEMU on `Ubuntu 14.4` has a critical bug that it doesn't recognize ELF format. Trying to upgrade QEMU to 2.1+ version to solve this problem.
 
 To make sure you have Node.js already, then install MakerBoard globally via NPM:
 ```bash
