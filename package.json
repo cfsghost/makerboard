@@ -1,6 +1,6 @@
 {
   "name": "makerboard",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Utility and emulator for development boards",
   "main": "./lib/makerboard.js",
   "scripts": {
